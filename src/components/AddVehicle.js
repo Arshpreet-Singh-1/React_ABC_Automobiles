@@ -1,9 +1,11 @@
 import { useFormik} from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 function AddVehicle(){
+    const navigate = useNavigate();
     const formik = useFormik(
         {
             initialValues: {
@@ -30,6 +32,7 @@ function AddVehicle(){
                     .then(response => {
                         setStatus('success');
                         resetForm();
+                        navigate('/vehicle-list');
                     })
                     .catch(error => {
                         setStatus('error');
@@ -236,7 +239,7 @@ function AddVehicle(){
 
 
                 <button  type='submit' className='btn btn-primary' disabled={formik.isSubmitting}>
-                    Submit
+                    Add
                 </button>
 
 

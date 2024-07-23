@@ -1,0 +1,27 @@
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    margin-bottom: 0.5rem;
+  }
+  
+  .card .btn {
+    width: 48%;
+  }
+  
+  .card-body .mt-auto {
+    margin-top: auto;
+  }
+  

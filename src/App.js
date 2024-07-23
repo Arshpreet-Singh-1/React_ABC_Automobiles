@@ -56,6 +56,8 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import { Route,Routes } from "react-router-dom";
 import VehicleList from "./components/VehicleList";
+import AddVehicle from "./components/AddVehicle";
+import UpdateVehicle from "./components/UpdateVehicle";
 
 
 
@@ -67,6 +69,8 @@ function App(){
       <Route path="/" element={<Home/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/vehicle-list" element={<VehicleList/>}/>
+      <Route path="/add-vehicle" element={<AddVehicle/>}/>
+      <Route path="/update-vehicle/:id" element={<UpdateVehicle/>}/>
     </Routes>
     <Footer/>
     </>

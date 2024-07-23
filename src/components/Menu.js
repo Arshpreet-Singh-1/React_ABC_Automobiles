@@ -22,8 +22,9 @@ function Menu(){
         <Link className="nav-link" to="/vehicle-list">Vehicles</Link>
         </li>
         <li className="nav-item">
-        <Link className="nav-link" to="/about">Services</Link>
+        <Link className="nav-link" to="/add-vehicle">Add Vehicle</Link>
         </li>
+     
         <li className="nav-item">
         <Link className="nav-link" to="/about">Contact</Link>
         </li>
