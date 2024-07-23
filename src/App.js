@@ -50,14 +50,32 @@ json-server --watch db.json --port 5000
 
 */
 
+
+/*
+Optimization techniques
+
+to improve the performance and maintainability of application
+
+1. Lazy Loading : Loading components only when they are needed 
+2. Code Splitting : Breaking the application into smaller bundles that can be 
+loaded on demand
+3. Pure Components : Pure components render only when their props or state change , 
+which can improve performance by avaoiding unnecessary renders.
+
+
+
+*/
+
+
+import { lazy, Suspense } from "react";
 import Menu from "./components/Menu";
-import About from "./components/About";
 import Footer from "./components/Footer";
-import Home from "./components/Home";
 import { Route,Routes } from "react-router-dom";
-import VehicleList from "./components/VehicleList";
-import AddVehicle from "./components/AddVehicle";
-import UpdateVehicle from "./components/UpdateVehicle";
+const VehicleList = lazy(()=> import("./components/VehicleList"));
+const AddVehicle = lazy(()=> import("./components/AddVehicle")) ;
+const UpdateVehicle = lazy(()=> import("./components/UpdateVehicle")) ;
+const About = lazy(()=> import("./components/About"));
+const  Home = lazy(()=> import("./components/Home"));
 
 
 
@@ -65,6 +83,7 @@ function App(){
   return (
     <>
     <Menu/>
+    <Suspense fallback={<div>Loading....</div>}>
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/about" element={<About/>}/>
@@ -72,6 +91,7 @@ function App(){
       <Route path="/add-vehicle" element={<AddVehicle/>}/>
       <Route path="/update-vehicle/:id" element={<UpdateVehicle/>}/>
     </Routes>
+    </Suspense>
     <Footer/>
     </>
   )
